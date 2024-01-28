@@ -2,20 +2,16 @@
 #include "variables.h"
 void log()
 {
-  _PP(centererror);
+  _PP(onlinval);
   _PP("\t");
   // Print SensorValues array
-  for (int va = 0; va < 8; va++)
-  {
-    _PP(irout[va]);
-    _PP("\t");
-  }
   _PP(error);
   _PP("\t");
   _PP(lpwm);
   _PP("\t");
   _PP(rpwm);
   _PP("\t");
+  _PP(centererror);
   _PL();
 }
 

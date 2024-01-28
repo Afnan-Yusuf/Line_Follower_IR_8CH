@@ -2,20 +2,13 @@
 #include "variables.h"
 void readerrorb()
 {
+  int lefc = analogRead(centerarray[0]);
+  int rigc = analogRead(centerarray[1]);
   onlinval = analogRead(onlinesensor);
-  onlinval > 150 ? onLine = true : onLine = false;
+  onlinval > 100 ? onLine = true : onLine = false;
   for (int i = 0; i <= 7; i++)
   {
-    irval[i] = analogRead(irarray[i]);
-    irout[i] = map(irval[i], irmin[i], irmax[i], 0, irrange);
-    if (irout[i] > threshold)
-    {
-      bitWrite(irdig, i, 1);
-    }
-    else
-    {
-      bitWrite(irdig, i, 0);
-    }
+    digitalRead(irarray[i]) == HIGH ? bitWrite(irdig, i, 1) : bitWrite(irdig, i, 0);
   }
   switch (irdig)
   {
@@ -72,5 +65,5 @@ void readerrorb()
   case B00000000:
     error = lasterror1;
   }
-  centererror = (irout[4] - irout[3])/10;
+  centererror = (lefc - rigc)/10;
 }

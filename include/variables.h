@@ -16,11 +16,11 @@ boolean newData = false;
 int a, b, m, n, x, y;
 char e, f, g;
 
-float Kp = 2;
+float Kp = .5;
 float Ki = 0.00;
 float Kd = 0;
 
-float Kpp = 50;
+float Kpp = 10;
 float Kii = 0.00;
 float Kdd = 0;
 int basespeed = 150;  // base speed of motor
@@ -46,8 +46,9 @@ int rpwm = 0;           // pwm value to right motor
 int lpwm = 0;           // pwm value to left motor
 
 int onlinval = 0;
-int threshold = 500;
-const int irarray[8] = {13, 12, 14, 27, 26, 25, 33, 32};         // ir array pins
+int threshold = 100;
+const int irarray[8] = {13, 12, 14, 22, 23, 25, 33, 32};
+const int centerarray[2] = {27, 26};      // ir array pins
 uint16_t irval[8] = {0, 0, 0, 0, 0, 0, 0, 0};                    // ir raw value
 int irmin[8] = {5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000}; // stores ir minim value after calib
 int irmax[8] = {0, 0, 0, 0, 0, 0, 0, 0};                         // stores ir maximum value after calib

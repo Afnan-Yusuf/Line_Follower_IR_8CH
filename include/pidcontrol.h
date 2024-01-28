@@ -21,7 +21,7 @@ void pid_control()
       P = centererror;
       I = I + centererror;
       D = lasterror - centererror;
-      _PL("small error");
+      //_PL("small error");
       pidval = ((P * Kp) + ((Ki * T) * I) + ((Kd / T) * D)); // calculater pid val
     lasterror = centererror;
     }
@@ -30,7 +30,7 @@ void pid_control()
       P1 = error;
       I1 = I + error;
       D1 = lasterror1 - error;
-      _PL("large error");
+      //_PL("large error");
       pidval = ((P1 * Kpp) + ((Kii * T) * I1) + ((Kdd / T) * D1)); // calculater pid val
       lasterror1 = error;
     }
