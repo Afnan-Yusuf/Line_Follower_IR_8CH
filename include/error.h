@@ -2,14 +2,19 @@
 #include "variables.h"
 void readerrorb()
 {
-  int lefc = analogRead(centerarray[0]);
-  int rigc = analogRead(centerarray[1]);
+  onLine =  false;
+  //int lefc = analogRead(centerarray[0]);
+  //int rigc = analogRead(centerarray[1]);
   onlinval = analogRead(onlinesensor);
-  onlinval > 100 ? onLine = true : onLine = false;
   for (int i = 0; i <= 7; i++)
   {
     digitalRead(irarray[i]) == HIGH ? bitWrite(irdig, i, 1) : bitWrite(irdig, i, 0);
+    if(digitalRead(irarray[i]) == HIGH){
+      onLine =  true;
+    }
   }
+  //rigc > threshold ? bitWrite(irdig, 3, 1) : bitWrite(irdig, 3, 0);
+  //lefc > threshold ? bitWrite(irdig, 4, 1) : bitWrite(irdig, 4, 0);
   switch (irdig)
   {
   // calculating errors based on ir array outputs
@@ -63,7 +68,6 @@ void readerrorb()
     break;
 
   case B00000000:
-    error = lasterror1;
+    error = lasterror;
   }
-  centererror = (lefc - rigc)/10;
 }

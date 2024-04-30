@@ -47,7 +47,7 @@ int lpwm = 0;           // pwm value to left motor
 
 int onlinval = 0;
 int threshold = 100;
-const int irarray[8] = {13, 12, 14, 22, 23, 25, 33, 32};
+const int irarray[8] = {13, 12, 14, 27, 26, 25, 33, 32};
 const int centerarray[2] = {27, 26};      // ir array pins
 uint16_t irval[8] = {0, 0, 0, 0, 0, 0, 0, 0};                    // ir raw value
 int irmin[8] = {5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000}; // stores ir minim value after calib
@@ -76,6 +76,7 @@ unsigned long currenttime = 0;
 int dtime = 0;
 unsigned long prevt = 0;
 
+bool brakeFlag = 0;
 bool onLine = true; // on line variable
 unsigned long times;
 unsigned long prev = 0;
