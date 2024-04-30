@@ -2,7 +2,7 @@
 #include "variables.h"
 void log()
 {
-  _PP(onlinval);
+  _PP(onLine);
   _PP("\t");
   // Print SensorValues array
   _PP(error);

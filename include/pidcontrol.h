@@ -6,26 +6,26 @@ void pid_control()
 
   currenttime = millis();
   dtime = currenttime - prevt;
-  if (onLine == true)
+  if (onLine == false)
   {
     digitalWrite(LED_BUILTIN, HIGH);
     brakeFlag = 0;
 
-    if (dtime >= T)
-    {
+    // if (dtime >= T)
+    // {
 
-      P = centererror;
-      I = I + centererror;
-      D = lasterror - centererror;
-      //_PL("small error");
+      P = error;
+      I = I + error;
+      D = lasterror - error;
+      _PL("small error");
       pidval = ((P * Kp) + ((Ki * T) * I) + ((Kd / T) * D)); // calculater pid val
       lasterror = error;
 
       prevt = currenttime;
-    }
+    //}
 
-    int lmspeed = basespeed + pidval; // get motor speed difference from pid val
-    int rmspeed = basespeed - pidval; // get motor speed difference from pid val
+    int lmspeed = basespeed - pidval; // get motor speed difference from pid val
+    int rmspeed = basespeed + pidval; // get motor speed difference from pid val
 
     if (lmspeed > maxspeed)
     { // if motor speed is greater than max speed set motor speed tot max speed

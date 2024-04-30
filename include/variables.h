@@ -16,7 +16,7 @@ boolean newData = false;
 int a, b, m, n, x, y;
 char e, f, g;
 
-float Kp = .5;
+float Kp = 30;
 float Ki = 0.00;
 float Kd = 0;
 
