@@ -62,6 +62,24 @@ A high-speed line-following robot using an 8-channel IR sensor array for precise
 git clone https://github.com/username/Line_Follower_IR_8CH.git
 
 
+```
+
+---
+
+## Usage
+
+```bash
+cd Line_Follower_IR_8CH
+```     
+
+```bash
+arduino --upload Line_Follower_IR_8CH.ino
+``` 
+
+---     
+
+## License
+
 
 
 
